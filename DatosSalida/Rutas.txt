@@ -1,0 +1,104 @@
+CODIGO PARA FACILITAR PONER RUTAS:
+rutas = []
+
+rutas.append(['A','N'])
+#rutas.append(['N','A'])
+
+rutas.append(['B','A'])
+#rutas.append(['A','B'])
+
+rutas.append(['D','O'])
+#rutas.append(['O','D'])
+
+rutas.append(['R','D'])
+#rutas.append(['D','R'])
+
+rutas.append(['T','P'])
+#rutas.append(['P','T'])
+
+rutas.append(['M','F'])
+#rutas.append(['F','M'])
+
+while (len(rutas) > 0):
+
+    ruta = rutas.pop()
+    print "RUTA ",ruta[0], "-->", ruta[1]
+    ruta = search.GPSProblem(ruta[0], ruta[1], search.romania)
+
+    print search.breadth_first_graph_search(ruta).path()
+    print search.depth_first_graph_search(ruta).path()
+    print search.ramificacion_y_acotacion(ruta).path()
+    print search.ramificacion_y_acotacion_sub(ruta).path()
+    print
+    print
+
+
+=======================================================================================
+=======================================================================================
+
+
+RUTA  M --> F
+13
+[<Node F>, <Node B>, <Node P>, <Node C>, <Node D>, <Node M>]
+7
+[<Node F>, <Node S>, <Node O>, <Node Z>, <Node A>, <Node T>, <Node L>, <Node M>]
+102
+[<Node F>, <Node S>, <Node R>, <Node C>, <Node D>, <Node M>]
+28
+[<Node F>, <Node S>, <Node R>, <Node C>, <Node D>, <Node M>]
+
+
+RUTA  T --> P
+10
+[<Node P>, <Node R>, <Node S>, <Node A>, <Node T>]
+16
+[<Node P>, <Node B>, <Node F>, <Node S>, <Node R>, <Node C>, <Node D>, <Node M>, <Node L>, <Node T>]
+42
+[<Node P>, <Node R>, <Node S>, <Node A>, <Node T>]
+8
+[<Node P>, <Node R>, <Node S>, <Node A>, <Node T>]
+
+
+RUTA  R --> D
+8
+[<Node D>, <Node C>, <Node R>]
+2
+[<Node D>, <Node C>, <Node R>]
+13
+[<Node D>, <Node C>, <Node R>]
+4
+[<Node D>, <Node C>, <Node R>]
+
+
+RUTA  D --> O
+13
+[<Node O>, <Node S>, <Node R>, <Node C>, <Node D>]
+6
+[<Node O>, <Node Z>, <Node A>, <Node T>, <Node L>, <Node M>, <Node D>]
+68
+[<Node O>, <Node S>, <Node R>, <Node C>, <Node D>]
+14
+[<Node O>, <Node S>, <Node R>, <Node C>, <Node D>]
+
+
+RUTA  B --> A
+13
+[<Node A>, <Node S>, <Node F>, <Node B>]
+5
+[<Node A>, <Node Z>, <Node O>, <Node S>, <Node F>, <Node B>]
+64
+[<Node A>, <Node S>, <Node R>, <Node P>, <Node B>]
+4
+[<Node A>, <Node S>, <Node R>, <Node P>, <Node B>]
+
+
+RUTA  A --> N
+19
+[<Node N>, <Node I>, <Node V>, <Node U>, <Node B>, <Node F>, <Node S>, <Node A>]
+14
+[<Node N>, <Node I>, <Node V>, <Node U>, <Node B>, <Node F>, <Node S>, <Node R>, <Node C>, <Node D>, <Node M>, <Node L>, <Node T>, <Node A>]
+2468
+[<Node N>, <Node I>, <Node V>, <Node U>, <Node B>, <Node P>, <Node R>, <Node S>, <Node A>]
+270
+[<Node N>, <Node I>, <Node V>, <Node U>, <Node B>, <Node P>, <Node R>, <Node S>, <Node A>]
+
